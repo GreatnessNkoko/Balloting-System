@@ -1,26 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import BallotForm from "./components/BallotForm";
+import NumberSelection from "./components/NumberSelection";
+import ThankYou from "./components/ThankYou";
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4 md:p-8">
+        <div className="bg-white p-12 rounded-lg shadow-xl w-full md:w-1/2 lg:w-1/3">
+          <h1 className="text-4xl font-bold text-center mb-8 text-blue-600">
+            Balloting System
+          </h1>
+          <Routes>
+            <Route path="/" element={<BallotForm />} />
+            <Route path="/select-number" element={<NumberSelection />} />
+            <Route path="/thank-you" element={<ThankYou />} />
+          </Routes>
+        </div>
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;
